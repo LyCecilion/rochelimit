@@ -25,6 +25,7 @@
 
 #let rl-date-display = "[year] 年 [month] 月 [day] 日"
 #let rl-ver-display = "版本"
+#let rl-outline-title = [目录]
 
 #let rl-plain-text(it) = {
   if type(it) == str {
@@ -182,7 +183,7 @@
   show outline: it => block(fill: luma(245), inset: 1em, width: 100%, radius: 5pt)[
     #set par(first-line-indent: 0em)
     #v(.2em)
-    #text(font: rl-font, size: rl-subhead-size, weight: rl-heading-weight)[目录]
+    #text(font: rl-font, size: rl-subhead-size, weight: rl-heading-weight, rl-outline-title)
     #v(.3em)
     #it
   ]
