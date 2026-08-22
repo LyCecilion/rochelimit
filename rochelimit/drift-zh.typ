@@ -97,9 +97,6 @@
   set page(paper: "a4", numbering: "1", header: rl-header)
   set par(leading: 0.85em, spacing: 0.85em, justify: true, first-line-indent: rl-fl-indent)
 
-  show divider: set line(stroke: 1pt)
-  show divider: it => block(above: 1.5em, below: 1.5em, it)
-
   show: codly-init.with()
   codly(languages: codly-languages)
 
@@ -182,7 +179,6 @@
   }
 
   set outline(title: none)
-  
   show outline: it => block(fill: luma(245), inset: 1em, width: 100%, radius: 5pt)[
     #set par(first-line-indent: 0em)
     #v(.2em)
@@ -190,6 +186,9 @@
     #v(.3em)
     #it
   ]
+
+  show divider: set line(stroke: 1pt)
+  show divider: it => block(above: 1.5em, below: 1.5em, it)
 
   v(1em)
   body
