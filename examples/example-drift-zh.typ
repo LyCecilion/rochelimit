@@ -20,11 +20,11 @@
   ],
 )
 
-RocheLimit 是洛汐（Limity'roChen）创作的一套 typst 模板，用于洛汐的日常排版需求。RocheLimit 共有 3 个版本——Drift、Current 和 Surge。该《RocheLimit（Drift）模板中文排版示例》（以下简称《示例》）使用了 Drift 排版。
+RocheLimit 是洛汐（Limity'roChen）创作的一套 typst 模板，用于洛汐的日常排版需求。RocheLimit 共有 2 个版本——Drift 和 Surge。该《RocheLimit（Drift）模板中文排版示例》（以下简称《示例》）使用了 Drift 排版。
 
-RocheLimit 采取类 #m-jaxon.render("\Large \LaTeX", inline: true) 排版物的风格，选择了 TeX Gyre Schola 和思源宋体等衬线字体，微调了页边距、行间距和段间距等，以满足日常或正式的排版所需。RocheLimit 的 3 个版本分别用于短、中、长篇幅的正式文档的排版。Drift 没有实现文档和小节的封面，确保在排版短幅内容时不会显得冗长。
+RocheLimit 采取类 #m-jaxon.render("\Large \LaTeX", inline: true) 排版物的风格，选择了 TeX Gyre Schola 和思源宋体等衬线字体，微调了页边距、行间距和段间距等，以满足日常或正式的排版所需。RocheLimit 的 2 个版本分别用于短 / 长篇幅的正式文档的排版。Drift 没有实现文档和小节的封面，确保在排版短幅内容时不会显得冗长。
 
-《示例》的 @template-presentation 将演示 typst 的基础功能以及 RocheLimit 通过包（package）扩展的功能，@showcase 将以数个具体的排版示例演示该模板的排版能力。
+《示例》将演示 typst 的基础功能以及 RocheLimit 扩展的功能。
 
 #figure(
   placement: none,
@@ -32,7 +32,7 @@ RocheLimit 采取类 #m-jaxon.render("\Large \LaTeX", inline: true) 排版物的
   caption: [*佩丽卡。*游戏《明日方舟：终末地》及其衍生作品的登场角色。终末地工业的监督和官方发言人，主要负责管理和推进协议源石技术的开发和应用，同时也承担帝江号的管理工作。],
 ) <perlica>
 
-该模板和示例均于 #link("https://github.com/LyCecilion/RocheLimit")[GitHub: LyCecilion/RocheLimit] 遵循 MIT LICENSE 开源。
+该模板和示例均于 #link("https://github.com/LyCecilion/RocheLimit")[GitHub: LyCecilion/RocheLimit] 遵循 MIT License 开源。
 
 编译该文档使用的 typst 版本为 #sys.version，编译参数为 #sys.inputs。
 
@@ -191,7 +191,3 @@ outline()
 #h(-2em) 得到一个目录：
 
 #outline()
-
-= 排版演示 <showcase>
-
-\#TODO.
