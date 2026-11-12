@@ -1,5 +1,9 @@
 #import "../rochelimit/drift-en.typ": *
 
+// Each author is a dictionary with a required `name` (string or content);
+// department, organization, location, and email are optional.
+// Date and version default to none and are displayed only when provided.
+
 #show: rl-content.with(
   title: [RocheLimit (Drift) Template: An English Typesetting Example],
   authors: (
@@ -151,7 +155,7 @@ yields:
 
 === Callout
 
-RocheLimit provides the Callout block, reproducing common Markdown usage. The `callout` function takes two arguments, `title` and `body`, where the `title` block is optional. For example, the following sample provides both `title` and `body`:
+RocheLimit provides the Callout block, reproducing common Markdown usage. The `callout` function requires two arguments, `title` and `body`. To omit the title, pass an empty block: `#callout[][Body]`. For example, the following sample provides both `title` and `body`:
 
 ```typst
 #callout[Note][hzlt!Game 2027 starts on December 25, 2026.]
@@ -189,7 +193,7 @@ which yields:
 
 === Table of Contents
 
-RocheLimit rewrites the `outline` block. For example, at the top of a page, you can directly use
+RocheLimit styles the `outline` block with a localized default title. Use `outline(title: [Custom contents])` to override the title, or `outline(title: none)` to hide it. For example, at the top of a page, you can directly use
 
 ```typst
 outline()

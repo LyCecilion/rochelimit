@@ -1,5 +1,9 @@
 #import "../rochelimit/drift-zh.typ": *
 
+// 每位作者使用字典，必填 name（字符串或内容）；
+// department、organization、location、email 均为可选字段。
+// date 和 version 默认为 none，仅在提供时显示。
+
 #show: rl-content.with(
   title: [RocheLimit（Drift）模板中文排版示例],
   authors: (
@@ -152,7 +156,7 @@ RocheLimit 提供了 Flag 块，以适配 CTF 场景。例如
 
 === Callout
 
-RocheLimit 提供 Callout 块，以还原 Markdown 的习惯用法。`callout` 函数有两个参数 `title` 和 `body`，其中 `title` 块是可选的。例如，下面的示例同时给出了 `title` 和 `body`：
+RocheLimit 提供 Callout 块，以还原 Markdown 的习惯用法。`callout` 函数的两个参数 `title` 和 `body` 均须传入；不显示标题时，须显式传入空块，例如 `#callout[][正文]`。下面的示例同时给出了 `title` 和 `body`：
 
 ```typst
 #callout[注意][hzlt!Game 2027 将于 2026 年 12 月 25 日开始。]
@@ -182,7 +186,7 @@ RocheLimit 提供 Callout 块，以还原 Markdown 的习惯用法。`callout` �
 
 === 目录
 
-RocheLimit 重写了 `outline` 块。例如，在页首，你可以直接使用
+RocheLimit 为 `outline` 块提供样式和本地化的默认标题。使用 `outline(title: [自定义目录])` 覆盖标题，或用 `outline(title: none)` 隐藏标题。例如，在页首，你可以直接使用
 
 ```typst
 outline()

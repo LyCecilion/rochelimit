@@ -32,6 +32,10 @@
     it
   } else if it.has("text") {
     it.text
+  } else if it.func() == [ ].func() or it.func() == linebreak or it.func() == parbreak {
+    " "
+  } else if it.has("body") {
+    rl-plain-text(it.body)
   } else if it.has("child") {
     rl-plain-text(it.child)
   } else if it.has("children") {
@@ -74,21 +78,12 @@
 #let rl-content(
   title: none,
   authors: (),
-  date: datetime.today(),
+  date: none,
   version: none,
   rl-header: none,
   body,
 ) = {
-  let rl-author-names = authors.map(author => {
-    let name = if type(author) == array {
-      author.at(0)
-    } else if type(author) == dictionary {
-      author.name
-    } else {
-      author
-    }
-    rl-plain-text(name)
-  })
+  let rl-author-names = authors.map(author => rl-plain-text(author.name))
   set document(
     title: title,
     author: rl-author-names,
@@ -139,10 +134,13 @@
     v(16pt, weak: true)
   }
 
-  v(10pt, weak: true)
-  align(center)[
-    #date.display(rl-date-display), #rl-ver-display #version
-  ]
+  let details = ()
+  if date != none { details.push(date.display(rl-date-display)) }
+  if version != none { details.push([#rl-ver-display #version]) }
+  if details.len() > 0 {
+    v(10pt, weak: true)
+    align(center, details.join([，]))
+  }
 
   set heading(numbering: "1. ")
   show heading: set block(below: 1em, above: 1.5em)
@@ -179,12 +177,10 @@
     it.note.body
   }
 
-  set outline(title: none)
+  set outline(title: rl-outline-title)
   show outline: it => block(fill: luma(245), inset: 1em, width: 100%, radius: 5pt)[
     #set par(first-line-indent: 0em)
     #v(.2em)
-    #text(font: rl-font, size: rl-subhead-size, weight: rl-heading-weight, rl-outline-title)
-    #v(.3em)
     #it
   ]
 
